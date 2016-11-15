@@ -12,7 +12,7 @@ namespace MongaTur
         public App()
         {
             // The root page of your application
-            MainPage = new NavigationPage(new Main());
+            MainPage = new NavigationPage(new Home());
         }
 
         protected override void OnStart()
