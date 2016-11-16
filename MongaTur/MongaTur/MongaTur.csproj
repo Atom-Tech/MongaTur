@@ -43,6 +43,7 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Imagens.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\PontosTuristicos.cs" />
     <Compile Include="PontosManager.cs" />

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace MongaTur
 {
-	public class pontosT
+	public class PontosT
 	{
         int cd;
         string id, name, desc, local;

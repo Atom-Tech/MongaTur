@@ -31,7 +31,7 @@ namespace MongaTur
 #if OFFLINE_SYNC_ENABLED
         IMobileServiceSyncTable<TodoItem> todoTable;
 #else
-        IMobileServiceTable<pontosT> todoTable;
+        IMobileServiceTable<PontosT> todoTable;
 #endif
 
         const string offlineDbPath = @"localstore.db";
@@ -49,7 +49,7 @@ namespace MongaTur
 
             this.todoTable = client.GetSyncTable<TodoItem>();
 #else
-            this.todoTable = client.GetTable<pontosT>();
+            this.todoTable = client.GetTable<PontosT>();
 #endif
         }
 
@@ -65,7 +65,7 @@ namespace MongaTur
             }
         }
         
-        public async Task<ObservableCollection<pontosT>> GetTodoItemsAsync(bool syncItems = false)
+        public async Task<ObservableCollection<PontosT>> GetTodoItemsAsync(bool syncItems = false)
         {
             try
             {
@@ -75,10 +75,11 @@ namespace MongaTur
                     await this.SyncAsync();
                 }
 #endif
-                IEnumerable<pontosT> items = await todoTable
+                IEnumerable<PontosT> items = await todoTable
+                    .OrderBy(x => x.Nome)
                     .ToEnumerableAsync();
 
-                return new ObservableCollection<pontosT>(items);
+                return new ObservableCollection<PontosT>(items);
             }
             catch (MobileServiceInvalidOperationException msioe)
             {
@@ -91,7 +92,7 @@ namespace MongaTur
             return null;
         }
 
-        public async Task SaveTaskAsync(pontosT item)
+        public async Task SaveTaskAsync(PontosT item)
         {
             if (item.Id == null)
             {
