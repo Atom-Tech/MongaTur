@@ -17,7 +17,7 @@ namespace MongaTur
         }
 
         [JsonProperty(PropertyName = "cdPonto")]
-		public int Código
+		public int Codigo
 		{
 			get { return cd; }
 			set { cd = value;}

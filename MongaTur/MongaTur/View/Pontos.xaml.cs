@@ -1,23 +1,28 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using MongaTur.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace MongaTur
+namespace MongaTur.View
 {
-    public partial class Main : ContentPage
+    public partial class Pontos : ContentPage
     {
-        PontosManager manager;
+        ImagemManager manager;
+        PontosT p;
+        ObservableCollection<ImagensT> lista;
 
-        public Main()
+        public Pontos()
         {
             InitializeComponent();
-            manager = new PontosManager();
+            manager = new ImagemManager();
+            p = Main.p;
         }
 
         protected override async void OnAppearing()
@@ -26,16 +31,24 @@ namespace MongaTur
             await RefreshItems(true, syncItems: true);
         }
 
-        public async void OnSyncItems(object sender, EventArgs e)
-        {
-            await RefreshItems(true, true);
-        }
-
         private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
-                todoList.ItemsSource = await manager.GetTodoItemsAsync(syncItems);
+                lista = await manager.GetTodoItemsAsync(syncItems);
+                imagem.Source = lista[0].LinkImagem;
+            }
+        }
+
+        public async Task<List<ImagensT>> GetAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(Constants.ApplicationURL+
+                    "/tables/imagensT");
+                var imagens = JsonConvert.DeserializeObject
+                    <List<ImagensT>>(json);
+                return imagens;
             }
         }
 

@@ -4,5 +4,7 @@
             xmlns:local="clr-namespace:MongaTur;assembly=MongaTur"
              x:Class="MongaTur.Home">
   <local:Main Title="Pontos Turísticos"/>
+  <ContentPage Title="A" />
+  <ContentPage Title="B" />
 
 </TabbedPage>

@@ -20,7 +20,7 @@ namespace MongaTur.Model
         }
 
         [JsonProperty(PropertyName = "idPonto")]
-        public int CódigoImagem
+        public int CodigoPonto
         {
             get { return cdI; }
             set { cdI = value; }

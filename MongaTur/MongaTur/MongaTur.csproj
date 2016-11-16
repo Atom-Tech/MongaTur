@@ -37,16 +37,20 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Home.xaml.cs">
+    <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main.xaml.cs">
+    <Compile Include="View\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manager\ImagemManager.cs" />
     <Compile Include="Model\Imagens.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\PontosTuristicos.cs" />
-    <Compile Include="PontosManager.cs" />
+    <Compile Include="Manager\PontosManager.cs" />
+    <Compile Include="View\Pontos.xaml.cs">
+      <DependentUpon>Pontos.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -87,13 +91,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Main.xaml">
+    <EmbeddedResource Include="View\Main.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Home.xaml">
+    <EmbeddedResource Include="View\Home.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Pontos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
