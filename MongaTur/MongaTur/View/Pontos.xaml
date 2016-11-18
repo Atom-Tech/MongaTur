@@ -7,22 +7,16 @@
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
     <ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IsVisible="False"
                        IsEnabled="True"
                        x:Name="syncIndicator"/>
-    <Grid Grid.Row="1">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="*"/>
-      </Grid.RowDefinitions>
-      <Image x:Name="imagem"/>
-    </Grid>
+    <Image x:Name="imagem"/>
   </Grid>
 </ContentPage>

@@ -39,19 +39,7 @@ namespace MongaTur.View
                 imagem.Source = lista[0].LinkImagem;
             }
         }
-
-        public async Task<List<ImagensT>> GetAsync()
-        {
-            using (var client = new HttpClient())
-            {
-                var json = await client.GetStringAsync(Constants.ApplicationURL+
-                    "/tables/imagensT");
-                var imagens = JsonConvert.DeserializeObject
-                    <List<ImagensT>>(json);
-                return imagens;
-            }
-        }
-
+        
         private class ActivityIndicatorScope : IDisposable
         {
             private bool showIndicator;
