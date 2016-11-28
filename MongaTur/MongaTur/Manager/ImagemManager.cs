@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using MongaTur.Model;
+using MongaTur.View;
 
 #if OFFLINE_SYNC_ENABLED
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
@@ -65,7 +66,7 @@ namespace MongaTur
                 }
 #endif
                 IEnumerable<ImagensT> items = await todoTable
-                    .Where(x => x.CodigoPonto == Main.p.Codigo)
+                    .Where(x => x.CodigoPonto == ListaPontos.p.Codigo)
                     .ToEnumerableAsync();
 
                 return new ObservableCollection<ImagensT>(items);

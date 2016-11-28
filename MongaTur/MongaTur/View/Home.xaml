@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:MongaTur;assembly=MongaTur"
-             x:Class="MongaTur.Home">
-  <local:Main Title="Pontos Turísticos"/>
-  <ContentPage Title="A" />
-  <ContentPage Title="B" />
-
-</TabbedPage>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:local="clr-namespace:MongaTur;assembly=MongaTur"
+                  x:Class="MongaTur.Home">
+  <MasterDetailPage.Master>
+    <local:Navi Title="Navegação"/>
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <local:Main/>
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

@@ -1,10 +1,6 @@
-﻿using MongaTur.Model;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,17 +8,22 @@ using Xamarin.Forms;
 
 namespace MongaTur.View
 {
-    public partial class Pontos : ContentPage
+    public partial class ListaPontos : ContentPage
     {
-        ImagemManager manager;
-        PontosT p;
-        ObservableCollection<ImagensT> lista;
+        public static PontosT p;
+        PontosManager manager;
 
-        public Pontos()
+        public ListaPontos()
         {
             InitializeComponent();
-            manager = new ImagemManager();
-            p = ListaPontos.p;
+            manager = new PontosManager();
+            todoList.ItemSelected += TodoList_ItemSelected;
+        }
+
+        private async void TodoList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            p = (PontosT)e.SelectedItem;
+            await Navigation.PushAsync(new Pontos());
         }
 
         protected override async void OnAppearing()
@@ -35,11 +36,10 @@ namespace MongaTur.View
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
-                lista = await manager.GetTodoItemsAsync(syncItems);
-                imagem.Source = lista[0].LinkImagem;
+                todoList.ItemsSource = await manager.GetTodoItemsAsync(syncItems);
             }
         }
-        
+
         private class ActivityIndicatorScope : IDisposable
         {
             private bool showIndicator;
@@ -77,5 +77,6 @@ namespace MongaTur.View
             }
 
         }
+
     }
 }

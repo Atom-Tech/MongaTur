@@ -11,8 +11,7 @@ namespace MongaTur
     {
         public App()
         {
-            var navi = new NavigationPage(new Home());
-            MainPage = navi;
+            MainPage = new Home();
         }
 
         protected override void OnStart()

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mongaTur="clr-namespace:MongaTur;assembly=MongaTur"
+             x:Class="MongaTur.Navi">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand">
+      <ListView x:Name="listView"
+                RowHeight="70"
+                VerticalOptions="FillAndExpand"
+                SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                <Image Source="{Binding Icone}"/>
+                <Label Text="{Binding Titulo}"
+                       VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
