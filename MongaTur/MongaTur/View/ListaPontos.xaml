@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MongaTur.View.ListaPontos">
+             xmlns:viewModels="clr-namespace:MongaTur.ViewModels;assembly=MongaTur"
+             x:Class="MongaTur.View.ListaPontos" Appearing="ListaPontos_OnAppearing">
+  <ContentPage.BindingContext>
+    <viewModels:ListaPontosViewModel />
+  </ContentPage.BindingContext>
   <Grid RowSpacing="0">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
@@ -10,20 +14,15 @@
     <ActivityIndicator Grid.RowSpan="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       IsVisible="False"
-                       IsEnabled="True"
-                       x:Name="syncIndicator"/>
-    <ListView x:Name="todoList"
+                       IsVisible="{Binding IsLoading}"
+                       IsEnabled="True"/>
+    <ListView x:Name="Lista"
 				IsPullToRefreshEnabled="true"
 				Grid.Row="1">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
-              <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                <Label Text="{Binding Nome}"  />
-              </StackLayout>
-            </StackLayout>
+            <Label Text="{Binding Nome}" Margin="10" />
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>

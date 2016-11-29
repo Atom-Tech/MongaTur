@@ -1,22 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MongaTur.View.Pontos">
+             xmlns:viewModels="clr-namespace:MongaTur.ViewModels;assembly=MongaTur"
+             x:Class="MongaTur.View.Pontos" Appearing="Pontos_OnAppearing">
   <Grid RowSpacing="0">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-    <ActivityIndicator Grid.RowSpan="2"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       IsVisible="False"
-                       IsEnabled="True"
-                       x:Name="syncIndicator"/>
-    <Image x:Name="imagem"/>
+    <ListView x:Name="Lista" Rotation="270">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Image Source="{Binding LinkImagem}"
+                   HeightRequest="64"
+                   WidthRequest="64"
+                   Rotation="90"/>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>    
+    <Label Grid.Row="1" Text="{Binding Nome}"/>
   </Grid>
 </ContentPage>

@@ -12,7 +12,7 @@
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+              <StackLayout Orientation="Horizontal" Padding="10">
                 <Image Source="{Binding Icone}"/>
                 <Label Text="{Binding Titulo}"
                        VerticalTextAlignment="Center"/>

@@ -2,7 +2,8 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:local="clr-namespace:MongaTur;assembly=MongaTur"
-                  x:Class="MongaTur.Home">
+                  x:Class="MongaTur.Home"
+                  MasterBehavior="Popover">
   <MasterDetailPage.Master>
     <local:Navi Title="Navegação"/>
   </MasterDetailPage.Master>
