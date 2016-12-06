@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MongaTur.View.Imagem">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="5*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Button x:Name="BotaoVoltar"
+            Text="&lt;"
+            Clicked="BotaoVoltar_OnClicked"
+            FontSize="32"/>
+    <Image x:Name="imagemExibida"
+           Aspect="AspectFill"
+           HorizontalOptions="FillAndExpand"
+           Grid.Column="1"/>
+    <Button x:Name="BotaoAvancar"
+            Text="&gt;"
+            Clicked="BotaoAvancar_OnClicked"
+            FontSize="32" Grid.Column="2"/>
+  </Grid>
+</ContentPage>

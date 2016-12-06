@@ -2,25 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:MongaTur.ViewModels;assembly=MongaTur"
+             xmlns:mongaTur="clr-namespace:MongaTur;assembly=MongaTur"
              x:Class="MongaTur.View.Pontos" Appearing="Pontos_OnAppearing">
-  <Grid RowSpacing="0">
+  <ContentPage.BindingContext>
+    <viewModels:PontosViewModel/>
+  </ContentPage.BindingContext>
+  <Grid RowSpacing="10">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
+      <RowDefinition>
+        <RowDefinition.Height>
+          <mongaTur:Tela x:TypeArguments="GridLength"
+                   Phone="64" Tablet="128" Desktop="256"/>
+        </RowDefinition.Height>
+      </RowDefinition>
+      <RowDefinition>
+        <RowDefinition.Height>
+          <mongaTur:Tela x:TypeArguments="GridLength"
+                   Phone="64" Tablet="128" Desktop="128"/>
+        </RowDefinition.Height>
+      </RowDefinition>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-    <ListView x:Name="Lista" Rotation="270">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <Image Source="{Binding LinkImagem}"
-                   HeightRequest="64"
-                   WidthRequest="64"
-                   Rotation="90"/>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>    
-    <Label Grid.Row="1" Text="{Binding Nome}"/>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="3*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button x:Name="BotaoVoltar"
+              Text="&lt;"
+              Clicked="BotaoVoltar_OnClicked"
+              FontSize="32"/>
+      <Image x:Name="imagemExibida"
+             Aspect="AspectFill"
+             HorizontalOptions="FillAndExpand" Grid.Column="1">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+        </Image.GestureRecognizers>  
+      </Image>
+      <Button x:Name="BotaoAvancar"
+              Text="&gt;"
+              Clicked="BotaoAvancar_OnClicked"
+              FontSize="32" Grid.Column="2"/>
+    </Grid>
+    <ScrollView Grid.Row="1" Orientation="Horizontal">
+      <StackLayout Orientation="Horizontal"
+                   x:Name="listaImagens"/>
+    </ScrollView>
+    <Label x:Name="campoNome" Grid.Row="2"/>
+    <Label x:Name="campoLocal" Grid.Row="3"/>
+    <Label x:Name="campoDesc" Grid.Row="4"/>
   </Grid>
 </ContentPage>

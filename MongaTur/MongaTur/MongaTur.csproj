@@ -38,12 +38,16 @@
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="MasterPageItem.cs" />
+    <Compile Include="Tela.cs" />
     <Compile Include="Plataforma.cs" />
     <Compile Include="ViewModels\ListaPontosViewModel.cs" />
     <Compile Include="ViewModels\NaviViewModel.cs" />
     <Compile Include="ViewModels\PontosViewModel.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Imagem.xaml.cs">
+      <DependentUpon>Imagem.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListaPontos.xaml.cs">
       <DependentUpon>ListaPontos.xaml</DependentUpon>
@@ -125,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\Navi.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Imagem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

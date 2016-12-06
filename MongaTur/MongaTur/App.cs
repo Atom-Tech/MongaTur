@@ -15,7 +15,12 @@ namespace MongaTur
 
         public App()
         {
-            MainPage = new Home();
+            MainPage = GetMainPage();
+        }
+
+        public static Page GetMainPage()
+        {
+            return new Home();
         }
 
         protected override void OnStart()
