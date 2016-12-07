@@ -41,7 +41,7 @@ namespace MongaTur.ViewModels
                 {
                     Titulo = "Onde Ficar",
                     Icone = "http://i.imgur.com/7laVU19.png?1",
-                    Pagina = typeof(ListaPontos)
+                    Pagina = typeof(ListaLugarFicar)
                 },
                 new MasterPageItem
                 {

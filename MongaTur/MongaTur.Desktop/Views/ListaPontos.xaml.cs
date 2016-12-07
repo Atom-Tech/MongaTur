@@ -1,6 +1,4 @@
-﻿using MongaTur.Desktop.Models;
-using MongaTur.Desktop.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,7 +21,6 @@ namespace MongaTur.Desktop.Views
     /// </summary>
     public partial class ListaPontos : Page
     {
-        ListaPontosViewModel viewModel;
 
         public ListaPontos()
         {
@@ -33,9 +30,15 @@ namespace MongaTur.Desktop.Views
 
         private async void ListaPontos_Loaded(object sender, RoutedEventArgs e)
         {
-            viewModel = new ListaPontosViewModel();
+            var viewModel =
+                new ViewModels.ListaPontosViewModel();
             await viewModel.Select();
             lista.DataContext = viewModel;
+        }
+
+        private void lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var ponto = (PontosT)lista.SelectedItem;
         }
     }
 }

@@ -1,27 +1,25 @@
-﻿using MongaTur.Desktop.Models;
+﻿using MongaTur.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MongaTur.Desktop.ViewModels
+namespace MongaTur.ViewModels
 {
-    public class ListaPontosViewModel : INotifyPropertyChanged
+    public class ListaLugarFicarViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<PontosT> Lista { get; set; }
+        public List<OndeFicar> Lista { get; set; }
 
         public async Task Select()
         {
             IsLoading = true;
-            var tabela = App.client.GetTable<PontosT>();
-            var pontos = await tabela.OrderBy(x => x.Nome).ToEnumerableAsync();
-            Lista = new ObservableCollection<PontosT>(pontos);
+            var tabela = App.client.GetTable<OndeFicar>();
+            Lista = await tabela.OrderBy(x => x.Nome).ToListAsync();
             IsLoading = false;
         }
 
@@ -45,5 +43,4 @@ namespace MongaTur.Desktop.ViewModels
             }
         }
     }
-
 }

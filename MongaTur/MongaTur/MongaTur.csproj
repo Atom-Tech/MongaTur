@@ -36,10 +36,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="MasterPageItem.cs" />
-    <Compile Include="Tela.cs" />
-    <Compile Include="Plataforma.cs" />
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\Maps.cs" />
+    <Compile Include="Controls\ContextCell.cs" />
+    <Compile Include="Classes\MasterPageItem.cs" />
+    <Compile Include="IDial.cs" />
+    <Compile Include="Model\OndeComer.cs" />
+    <Compile Include="Model\OndeFicar.cs" />
+    <Compile Include="Model\Feiras.cs" />
+    <Compile Include="Model\Praias.cs" />
+    <Compile Include="Model\Telefones.cs" />
+    <Compile Include="Classes\Tela.cs" />
+    <Compile Include="Classes\Plataforma.cs" />
+    <Compile Include="ViewModels\ListaLugarFicarViewModel.cs" />
     <Compile Include="ViewModels\ListaPontosViewModel.cs" />
     <Compile Include="ViewModels\NaviViewModel.cs" />
     <Compile Include="ViewModels\PontosViewModel.cs" />
@@ -48,6 +57,9 @@
     </Compile>
     <Compile Include="View\Imagem.xaml.cs">
       <DependentUpon>Imagem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListaLugarFicar.xaml.cs">
+      <DependentUpon>ListaLugarFicar.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListaPontos.xaml.cs">
       <DependentUpon>ListaPontos.xaml</DependentUpon>
@@ -135,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\Imagem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\ListaLugarFicar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

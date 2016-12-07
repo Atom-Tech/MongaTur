@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MongaTur.Desktop.Models
+namespace MongaTur.Model
 {
-    public class PontosT
+    public class Feiras
     {
         int cd;
-        string id, name, desc, local;
+        string id, local, diaSemana;
 
         [JsonProperty(PropertyName = "id")]
         public string Id
@@ -19,32 +19,25 @@ namespace MongaTur.Desktop.Models
             set { id = value; }
         }
 
-        [JsonProperty(PropertyName = "cdPonto")]
+        [JsonProperty(PropertyName = "cdFeira")]
         public int Codigo
         {
             get { return cd; }
             set { cd = value; }
         }
 
-        [JsonProperty(PropertyName = "nmPonto")]
-        public string Nome
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        [JsonProperty(PropertyName = "dsPonto")]
-        public string Desc
-        {
-            get { return desc; }
-            set { desc = value; }
-        }
-
-        [JsonProperty(PropertyName = "localPonto")]
+        [JsonProperty(PropertyName = "localFeira")]
         public string Local
         {
             get { return local; }
             set { local = value; }
+        }
+
+        [JsonProperty(PropertyName = "diaSemana")]
+        public string DiaSemana
+        {
+            get { return diaSemana; }
+            set { diaSemana = value; }
         }
     }
 }
