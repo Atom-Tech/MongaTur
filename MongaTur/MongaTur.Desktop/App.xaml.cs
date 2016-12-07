@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,8 @@ namespace MongaTur.Desktop
     /// </summary>
     public partial class App : Application
     {
+        public const string applicationURL = "http://mongaturwb.azurewebsites.net";
+        public static MobileServiceClient client =
+            new MobileServiceClient(applicationURL);
     }
 }

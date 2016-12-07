@@ -18,7 +18,14 @@
     </Window.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="Auto" Background="SteelBlue" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" MouseLeftButtonUp="TitleBar_MouseLeftButtonUp" MouseMove="TitleBar_MouseMove">
-            <Label Content="MongaTur" FontSize="14" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="botaoVoltar" Width="50" Height="29" Visibility="Collapsed" Click="botaoVoltar_Click">
+                    <Button.Content>
+                        <Image Source="Imagens/Back-32.png" />
+                    </Button.Content>
+                </Button>
+                <Label Content="MongaTur" Margin="10,0,0,0" FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
                 <Button x:Name="botaoMinimizar" Click="minimizar_Click" Width="29">
                     <Button.Content>
@@ -41,12 +48,22 @@
             </StackPanel>
         </DockPanel>
         <Grid DockPanel.Dock="Bottom">
-            <Frame x:Name="Root" Margin="50,0,0,0"/>
+            <Frame x:Name="Root" 
+                   Margin="50,0,0,0"
+                   NavigationUIVisibility="Hidden"
+                   Navigated="Root_Navigated"
+                   Source="Views/Home.xaml"/>
             <hb:HamburgerMenu Background="SteelBlue"
                               HorizontalAlignment="Left"
                               SelectionIndicatorColor="White"
                               MenuItemForeground="LightBlue">
-                <hb:HamburgerMenuItem Icon="Imagens/pontosT.png" Text="Pontos Turísticos"/>
+                <hb:HamburgerMenuItem Icon="Imagens/Home-32.png" Text="Página Principal" Selected="Home_Selected"/>
+                <hb:HamburgerMenuItem Icon="Imagens/pontosT.png" Text="Pontos Turísticos" Selected="Pontos_Selected"/>
+                <hb:HamburgerMenuItem Icon="Imagens/praias.png" Text="Praias"/>
+                <hb:HamburgerMenuItem Icon="Imagens/telUteis.png" Text="Telefones Utéis"/>
+                <hb:HamburgerMenuItem Icon="Imagens/ondeComer.png" Text="Onde Comer"/>
+                <hb:HamburgerMenuItem Icon="Imagens/ondeFicar.png" Text="Onde Ficar"/>
+                <hb:HamburgerMenuItem Icon="Imagens/feiraLivre.png" Text="Feiras Livres"/>
             </hb:HamburgerMenu>
         </Grid>
     </DockPanel>

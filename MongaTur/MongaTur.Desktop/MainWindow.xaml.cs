@@ -75,6 +75,29 @@ namespace MongaTur.Desktop
             this.DragMove();
         }
 
+        private void Pontos_Selected(object sender, RoutedEventArgs e)
+        {
+            Root.Navigate(new Views.ListaPontos());
+        }
+
+        private void Root_Navigated(object sender, NavigationEventArgs e)
+        {
+            if (Root.CanGoBack)
+                botaoVoltar.Visibility = Visibility.Visible;
+            else
+                botaoVoltar.Visibility = Visibility.Collapsed;
+        }
+
+        private void botaoVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            Root.GoBack();
+        }
+
+        private void Home_Selected(object sender, RoutedEventArgs e)
+        {
+            Root.Navigate(new Views.Home());
+        }
+
         private void TitleBar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _isMouseDown = false;
